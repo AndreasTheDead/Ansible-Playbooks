@@ -1,0 +1,4 @@
+---
+collections:
+  - name: devsec.hardening
+    source: https://galaxy.ansible.com

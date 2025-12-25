@@ -1,0 +1,53 @@
+- name: Setup Redhat Server
+  hosts: Redhat
+  become: true
+  ignore_unreachable: true
+  tasks:
+    - name: Registering system using activation key and organization ID
+      ansible.builtin.include_role:
+        name: linux-system-roles.rhc
+      vars:
+        rhc_auth:
+          activation_keys:
+            keys:
+              - "{{ RedHatActivationKey }}"
+        rhc_organization: "{{ RedHatOrganization }}"
+    - name: Apply SSH Hardening
+      ansible.builtin.include_role:
+        name: devsec.hardening.ssh_hardening
+      vars:
+        ssh_custom_options:
+          - "Include /etc/ssh/ssh_config.d/*"
+        sshd_custom_options:
+          - "AcceptEnv LANG"
+    - name: Apply OS Hardening
+      ansible.builtin.include_role:
+        name: devsec.hardening.os_hardening
+      vars:
+        sysctl_overwrite:
+          net.ipv4.ip_forward: 1
+    - name: Install Default Packages
+      ansible.builtin.dnf:
+        name:
+          - qemu-guest-agent
+          - rhc-worker-playbook
+          - insights-client
+        state: present
+    - name: Create Default User for AZE
+      ansible.builtin.user:
+        name: 'andreas'
+        create_home: true
+        state: present
+        groups:
+          - wheel
+    - name: Check that a page returns successfully but fail if the word AWESOME is not in the page contents
+      ansible.builtin.uri:
+        url: https://files.zeller.sh/LinuxManagment/SSH-Andreas.txt
+        return_content: true
+      register: andreas_pub
+      failed_when: "andreas_pub is failed"
+    - name: Add authorized key for AZE user
+      ansible.posix.authorized_key:
+        user: andreas
+        state: present
+        key: "{{ lookup('url', 'https://files.zeller.sh/LinuxManagment/SSH-Andreas.pub') }}"
