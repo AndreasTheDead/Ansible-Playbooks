@@ -1,0 +1,37 @@
+---
+all:
+  hosts:
+    RedhatDev:
+      ansible_port: 22
+      ansible_host: RedhatDev.int.zeller.sh
+      tags: [redhat, podman, autoupdate]
+    DOH01:
+      ansible_port: 22
+      ansible_host: DOH01.int.zeller.sh
+      tags: [redhat, podman, autoupdate]
+    Movies:
+      tags: [ubuntu, autoupdate, jellyfin]
+    VMH01:
+      tags: [ubuntu, autoupdate]
+    VMH02:
+      tags: [ubuntu, autoupdate]
+    WEB:
+      tags: [ubuntu, autoupdate, docker]
+    Games:
+      tags: [ubuntu, autoupdate, docker]
+    STO01:
+      tags: [truenas]
+    STO02:
+      tags: [truenas]
+    HA01:
+      tags: [homeassistant]
+    HA02:
+      tags: [homeassistant]
+    HA03:
+      tags: [homeassistant]
+    DC01:
+      tags: [windows]
+    DC02:
+      tags: [windows]
+    DC03:
+      tags: [windows]

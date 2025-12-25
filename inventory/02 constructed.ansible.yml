@@ -1,0 +1,12 @@
+---
+plugin: ansible.builtin.constructed
+strict: false
+groups:
+  redhat: "'redhat' in tags"
+  ubuntu: "'ubuntu' in tags"
+  windows: "'windows' in tags"
+  truenas: "'truenas' in tags"
+  homeassistant: "'homeassistant' in tags"
+  autoupdates: "'autoupdate' in tags"
+  podman: "'podman' in tags"
+  docker: "'docker' in tags"
