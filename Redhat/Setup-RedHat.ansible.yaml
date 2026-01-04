@@ -34,7 +34,7 @@
           - insights-client
         state: present
     - name: Allow Sudo without Password
-      ansible.buildin.lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/sudoers
         state: present
         regexp: '^%sudo'
