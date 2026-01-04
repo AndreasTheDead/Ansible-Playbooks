@@ -1,5 +1,5 @@
 - name: Install Docker on RHEL
-  hosts: Redhat&Docker
+  hosts: redhat&docker
   become: true
   ignore_unreachable: true
   tasks:

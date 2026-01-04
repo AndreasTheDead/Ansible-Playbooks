@@ -1,5 +1,5 @@
 - name: Setup Redhat Server
-  hosts: Redhat
+  hosts: redhat
   become: true
   ignore_unreachable: true
   tasks:

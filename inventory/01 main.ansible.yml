@@ -4,11 +4,11 @@ all:
     RedhatDev:
       ansible_port: 22
       ansible_host: RedhatDev.int.zeller.sh
-      tags: [redhat, podman, autoupdate]
+      tags: [redhat, docker, autoupdate]
     DOH01:
       ansible_port: 22
       ansible_host: DOH01.int.zeller.sh
-      tags: [redhat, podman, autoupdate]
+      tags: [redhat, docker, autoupdate]
     Movies:
       tags: [ubuntu, autoupdate, jellyfin]
     VMH01:
