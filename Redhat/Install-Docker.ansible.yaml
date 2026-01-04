@@ -1,0 +1,29 @@
+- name: Install Docker on RHEL
+  hosts: Redhat&Docker
+  become: true
+  ignore_unreachable: true
+  tasks:
+    - name: Install prerequisites
+      ansible.builtin.dnf:
+        name:
+          - dnf-plugins-core
+        state: present
+    - name: Add docker Repo
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/rhel/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+        mode: 644
+    - name: Install Docker
+      ansible.builtin.dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+    - name: Set Docker to autostart
+      ansible.builtin.systemd_service:
+        name: docker
+        state: started
+        enabled: true
