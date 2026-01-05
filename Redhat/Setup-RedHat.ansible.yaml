@@ -32,6 +32,7 @@
           - qemu-guest-agent
           - rhc-worker-playbook
           - insights-client
+          - nano
         state: present
     - name: Allow Sudo without Password
       ansible.builtin.lineinfile:
