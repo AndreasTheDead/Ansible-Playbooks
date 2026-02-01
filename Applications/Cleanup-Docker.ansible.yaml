@@ -1,0 +1,15 @@
+- name: Cleanup-Docker
+  hosts: docker
+  become: true
+  become_method: ansible.builtin.sudo
+  ignore_unreachable: true
+  tasks:
+    - name: Prune container, images and builder_cache
+      community.docker.docker_prune:
+        containers: true
+        images: true
+        images_filters:
+          dangling: false
+        networks: false
+        volumes: false
+        builder_cache: true
