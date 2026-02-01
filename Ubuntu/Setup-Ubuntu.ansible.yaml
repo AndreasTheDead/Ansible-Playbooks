@@ -1,4 +1,4 @@
-- name: Setup Redhat Server
+- name: Setup Ubuntu Server
   hosts: ubuntu:&test
   become: true
   ignore_unreachable: true
@@ -29,8 +29,8 @@
         name: 'andreas'
         create_home: true
         state: present
-        groups:
-          - wheel
+        # groups:
+        #  - wheel
     - name: Add authorized key for AZE user
       ansible.posix.authorized_key:
         user: andreas
