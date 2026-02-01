@@ -6,6 +6,7 @@
       firewall: "{{ ansible_host }}"
       api_key: "{{ firewallkey }}"
       api_secret: "{{ firewallsecret }}"
+      ssl_verify: false
 
     oxlorg.opnsense.list:
       target: 'unbound_forward'
