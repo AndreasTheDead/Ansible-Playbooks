@@ -1,0 +1,19 @@
+- hosts: opensense
+  connection: local
+  gather_facts: false
+  module_defaults:
+    group/oxlorg.opnsense.all:
+      firewall: "{{ ansible_host }}"
+      api_key: "{{ firewallkey }}"
+      api_secret: "{{ firewallsecret }}"
+
+    oxlorg.opnsense.list:
+      target: 'unbound_forward'
+  tasks:
+    - name: Install required httpx python module local
+      ansible.builtin.pip:
+        name: httpx
+    - name: Adding
+      oxlorg.opnsense.unbound_forward:
+        domain: 'dot.template.opnsense.oxl.app'
+        target: '1.1.1.1'
