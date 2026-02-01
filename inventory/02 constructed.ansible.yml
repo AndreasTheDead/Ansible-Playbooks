@@ -4,6 +4,7 @@ strict: false
 groups:
   redhat: "'redhat' in tags"
   ubuntu: "'ubuntu' in tags"
+  debian: "'debian' in tags"
   windows: "'windows' in tags"
   truenas: "'truenas' in tags"
   homeassistant: "'homeassistant' in tags"
