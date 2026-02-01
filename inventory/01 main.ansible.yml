@@ -5,6 +5,10 @@ all:
       ansible_port: 22
       ansible_host: RedhatDev.int.zeller.sh
       tags: [redhat, docker, autoupdate]
+    UbuntuDev:
+      ansible_port: 22
+      ansible_host: UbuntuDev.int.zeller.sh
+      tags: [ubuntu, docker, autoupdate, test]
     MS01:
       ansible_port: 22
       ansible_host: ms01.int.zeller.sh
