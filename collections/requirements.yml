@@ -2,3 +2,5 @@
 collections:
   - name: devsec.hardening
     source: https://galaxy.ansible.com
+  - name: oxlorg.opnsense
+    source: https://galaxy.ansible.com
