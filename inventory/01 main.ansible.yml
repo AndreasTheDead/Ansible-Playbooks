@@ -9,6 +9,10 @@ all:
       ansible_port: 22
       ansible_host: ubuntudev.int.zeller.sh
       tags: [ubuntu, docker, autoupdate, test]
+    Router01:
+      ansible_port: 22
+      ansible_host: router01.int.zeller.sh
+      tags: [opensense]
     MS01:
       ansible_port: 22
       ansible_host: ms01.int.zeller.sh
