@@ -14,7 +14,27 @@
     - name: Install required httpx python module local
       ansible.builtin.pip:
         name: httpx
-    - name: Adding
+    - name: Adding zeller.sh forwarding to DC01
       oxlorg.opnsense.unbound_forward:
-        domain: 'dot.template.opnsense.oxl.app'
-        target: '1.1.1.1'
+        domain: 'zeller.sh'
+        target: '192.168.5.11'
+    - name: Adding zeller.sh forwarding to DC02 
+      oxlorg.opnsense.unbound_forward:
+        domain: 'zeller.sh'
+        target: '192.168.5.12'
+    - name: Adding nextdns 1
+      oxlorg.opnsense.unbound_forward:
+        domain: ''
+        target: '45.90.28.230'
+    - name: Adding nextdns 2
+      oxlorg.opnsense.unbound_forward:
+        domain: ''
+        target: '45.90.30.230'
+    - name: Adding games.industria.wtf forwarding to DC01
+      oxlorg.opnsense.unbound_forward:
+        domain: 'games.industria.wtf'
+        target: '192.168.5.11'
+    - name: Adding games.industria.wtf forwarding to DC02 
+      oxlorg.opnsense.unbound_forward:
+        domain: 'games.industria.wtf'
+        target: '192.168.5.12'
