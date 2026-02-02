@@ -18,7 +18,7 @@
       oxlorg.opnsense.unbound_general:
         enabled: true
         port: 53
-        interfaces: ['GuestVLAN','IOTVlan','LAN']
+        interfaces: ['lan','opt2','opt3']
         dnssec: true
         dns64: false
         #dns64_prefix: '64:ff9b::/96'
