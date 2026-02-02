@@ -12,7 +12,7 @@ all:
     Router02:
       ansible_port: 22
       ansible_host: router02.int.zeller.sh
-      tags: [opensense]
+      tags: [opnsense]
     MS01:
       ansible_port: 22
       ansible_host: ms01.int.zeller.sh

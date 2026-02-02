@@ -5,7 +5,7 @@ groups:
   redhat: "'redhat' in tags"
   ubuntu: "'ubuntu' in tags"
   debian: "'debian' in tags"
-  opensense: "'opensense' in tags"
+  opensense: "'opnsense' in tags"
   windows: "'windows' in tags"
   truenas: "'truenas' in tags"
   homeassistant: "'homeassistant' in tags"

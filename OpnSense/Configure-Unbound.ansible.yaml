@@ -1,5 +1,5 @@
-- name: Setup Unbound on OpenSense
-  hosts: opensense
+- name: Setup Unbound on OPNSense
+  hosts: opnsense
   connection: local
   gather_facts: false
   module_defaults:
