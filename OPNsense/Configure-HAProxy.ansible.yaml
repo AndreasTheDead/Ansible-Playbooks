@@ -44,7 +44,7 @@
         email: "{{ LE_Mail }}"
         ca: letsencrypt
         register: true
-        enable: true
+        enabled: true
     - name: Adding ACME Certificate
       oxlorg.opnsense.acme_certificate:
         name: zeller.sh
