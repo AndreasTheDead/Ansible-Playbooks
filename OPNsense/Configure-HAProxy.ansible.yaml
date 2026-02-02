@@ -1,0 +1,57 @@
+- name: Setup Unbound on OpenSense
+  hosts: opnsense
+  connection: local
+  gather_facts: false
+  module_defaults:
+    group/oxlorg.opnsense.all:
+      firewall: "{{ ansible_host }}"
+      api_key: "{{ firewallkey }}"
+      api_secret: "{{ firewallsecret }}"
+      ssl_verify: false
+    oxlorg.opnsense.list:
+      target: 'package'
+  tasks:
+    - name: Install required httpx python module local
+      ansible.builtin.pip:
+        name: httpx
+    - name: Installing HA proxy plugin
+      oxlorg.opnsense.package:
+        name: ['os-haproxy', 'os-acme-client']
+        action: 'install'
+    - name: Configure Default Settings for ACME Client
+      oxlorg.opnsense.acme_general:
+        enable: true
+        auto_renewal: true
+        # challenge_port: 43580
+        # tls_challenge_port: 43581
+        # restart_timeout: 600
+        haproxy_integration: false
+        log_level: normal
+        show_intro: true
+        # debug: false
+    - name: Configure ACME Challenge Types
+      oxlorg.opnsense.acme_validation:
+        name: DNS CloudFlare
+        description: DNS Validation w/ CloudFlare
+        method: dns01
+        dns_service: dns_cf
+        dns_cf_token: "{{ CloudFlareToken }}"
+        dns_cf_account_id: "{{ CloudFlareAccountID }}"
+    - name: Configure ACME Account Types
+      oxlorg.opnsense.acme_account:
+        name: LE opnsense
+        description: letsencrypt Account for OPNSense
+        email: "{{ LE_Mail }}"
+        ca: letsencrypt
+        register: true
+        enable: true
+    - name: Adding ACME Certificate
+      oxlorg.opnsense.acme_certificate:
+        name: zeller.sh
+        description: LE Zeller.sh Wildcard
+        alt_names: ['*.zeller.sh', '*.int.zeller.sh']
+        account: LE opnsense
+        validation: DNS CloudFlare
+        auto_renew: true
+        renew_interval: 60
+        key_length: key_4096
