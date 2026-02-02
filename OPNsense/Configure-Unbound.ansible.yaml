@@ -39,23 +39,29 @@
       oxlorg.opnsense.unbound_forward:
         domain: ''
         target: '45.90.28.230'
+        description: Default forwarding to NextDNS
     - name: Adding nextdns 2
       oxlorg.opnsense.unbound_forward:
         domain: ''
         target: '45.90.30.230'
+        description: Default forwarding to NextDNS
     - name: Adding zeller.sh forwarding to DC01
       oxlorg.opnsense.unbound_forward:
         domain: 'zeller.sh'
         target: '192.168.5.11'
+        description: forward Zeller.sh to Domain Controllers
     - name: Adding zeller.sh forwarding to DC02
       oxlorg.opnsense.unbound_forward:
         domain: 'zeller.sh'
         target: '192.168.5.12'
+        description: forward Zeller.sh to Domain Controllers
     - name: Adding games.industria.wtf forwarding to DC01
       oxlorg.opnsense.unbound_forward:
         domain: 'games.industria.wtf'
         target: '192.168.5.11'
+        description: forward games.industria.wtf to Domain Controllers
     - name: Adding games.industria.wtf forwarding to DC02
       oxlorg.opnsense.unbound_forward:
         domain: 'games.industria.wtf'
         target: '192.168.5.12'
+        description: forward games.industria.wtf to Domain Controllers
