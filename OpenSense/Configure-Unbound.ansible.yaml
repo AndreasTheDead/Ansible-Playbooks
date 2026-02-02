@@ -14,14 +14,26 @@
     - name: Install required httpx python module local
       ansible.builtin.pip:
         name: httpx
-    - name: Adding zeller.sh forwarding to DC01
-      oxlorg.opnsense.unbound_forward:
-        domain: 'zeller.sh'
-        target: '192.168.5.11'
-    - name: Adding zeller.sh forwarding to DC02 
-      oxlorg.opnsense.unbound_forward:
-        domain: 'zeller.sh'
-        target: '192.168.5.12'
+    - name: Set General Settings
+      oxlorg.opnsense.unbound_general:
+        enabled: true
+        port: 53
+        interfaces: 'GuestVLAN,IOTVlan,LAN'
+        dnssec: true
+        dns64: false
+        #dns64_prefix: '64:ff9b::/96'
+        aaaa_only_mode: false
+        register_dhcp_leases: false
+        dhcp_domain: ''
+        register_dhcp_static_mappings: false
+        register_ipv6_link_local: true
+        register_system_records: true
+        txt_records: false
+        flush_dns_cache: false
+        local_zone_type: 'transparent'
+        # outgoing_interfaces: ''
+        wpad: false
+        reload: true
     - name: Adding nextdns 1
       oxlorg.opnsense.unbound_forward:
         domain: ''
@@ -30,6 +42,14 @@
       oxlorg.opnsense.unbound_forward:
         domain: ''
         target: '45.90.30.230'
+    - name: Adding zeller.sh forwarding to DC01
+      oxlorg.opnsense.unbound_forward:
+        domain: 'zeller.sh'
+        target: '192.168.5.11'
+    - name: Adding zeller.sh forwarding to DC02 
+      oxlorg.opnsense.unbound_forward:
+        domain: 'zeller.sh'
+        target: '192.168.5.12'
     - name: Adding games.industria.wtf forwarding to DC01
       oxlorg.opnsense.unbound_forward:
         domain: 'games.industria.wtf'
