@@ -20,7 +20,7 @@
         action: 'install'
     - name: Configure Default Settings for ACME Client
       oxlorg.opnsense.acme_general:
-        enable: true
+        enabled: true
         auto_renewal: true
         # challenge_port: 43580
         # tls_challenge_port: 43581
