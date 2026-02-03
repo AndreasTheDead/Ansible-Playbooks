@@ -1,4 +1,4 @@
-- name: Setup Unbound on OpenSense
+- name: Setup ACME Certificate on OpenSense
   hosts: opnsense
   connection: local
   gather_facts: false
@@ -45,6 +45,11 @@
         ca: letsencrypt
         register: true
         enabled: true
+    - name: Adding ACME Action
+      oxlorg.opnsense.acme_action:
+        name: Restart GUI
+        description: Restart OPNsense GUI
+        type: configd_restart_gui
     - name: Adding ACME Certificate
       oxlorg.opnsense.acme_certificate:
         name: zeller.sh
@@ -55,3 +60,4 @@
         auto_renewal: true
         renew_interval: 60
         key_length: key_4096
+        action: ['Restart GUI']
