@@ -60,4 +60,4 @@
         auto_renewal: true
         renew_interval: 60
         key_length: key_4096
-        action: ['Restart GUI']
+        restart_actions: ['Restart GUI']
