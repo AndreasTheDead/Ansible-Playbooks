@@ -8,7 +8,11 @@ all:
     UbuntuDev:
       ansible_port: 22
       ansible_host: ubuntudev.int.zeller.sh
-      tags: [ubuntu, docker, autoupdate, test]
+      tags: [ubuntu, docker, autoupdate, new]
+    ReverseProxy:
+      ansible_port: 22
+      ansible_host: ReverseProxy.int.zeller.sh
+      tags: [ubuntu, docker, autoupdate, new]
     Router02:
       ansible_port: 22
       ansible_host: router02.int.zeller.sh

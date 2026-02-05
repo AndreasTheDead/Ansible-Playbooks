@@ -12,4 +12,4 @@ groups:
   autoupdates: "'autoupdate' in tags"
   podman: "'podman' in tags"
   docker: "'docker' in tags"
-  test: "'test' in tags"
+  new: "'new' in tags"

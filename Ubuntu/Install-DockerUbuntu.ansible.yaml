@@ -1,7 +1,7 @@
 - name: Install Docker
   become: true
   become_method: ansible.builtin.sudo
-  hosts: ubuntu:&docker:&test
+  hosts: ubuntu:&docker:&new
   ignore_unreachable: true
   gather_facts: true
   tasks:

@@ -1,5 +1,5 @@
 - name: Setup Ubuntu Server
-  hosts: ubuntu:&test
+  hosts: ubuntu:&new
   become: true
   ignore_unreachable: true
   tasks:
