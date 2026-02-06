@@ -5,10 +5,10 @@ all:
       ansible_port: 22
       ansible_host: RedhatDev.int.zeller.sh
       tags: [redhat, docker, autoupdate]
-    UbuntuDev:
-      ansible_port: 22
-      ansible_host: ubuntudev.int.zeller.sh
-      tags: [ubuntu, docker, autoupdate, new]
+    #UbuntuDev:
+    #  ansible_port: 22
+    #  ansible_host: ubuntudev.int.zeller.sh
+    #  tags: [ubuntu, docker, autoupdate, new]
     ReverseProxy:
       ansible_port: 22
       ansible_host: 192.168.5.24
