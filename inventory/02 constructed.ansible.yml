@@ -9,7 +9,7 @@ groups:
   windows: "'windows' in tags"
   truenas: "'truenas' in tags"
   homeassistant: "'homeassistant' in tags"
-  autoupdates: "'autoupdate' in tags"
+  autoupdate: "'autoupdate' in tags"
   podman: "'podman' in tags"
   docker: "'docker' in tags"
   new: "'new' in tags"
