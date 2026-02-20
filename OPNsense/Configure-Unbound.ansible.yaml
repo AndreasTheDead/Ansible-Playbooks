@@ -65,3 +65,14 @@
         domain: 'games.industria.wtf'
         target: '192.168.5.12'
         description: forward games.industria.wtf to Domain Controllers
+    - name: Adding files.zeller.sh forwarding to cloudflare dns
+      oxlorg.opnsense.unbound_forward:
+        domain: 'files.zeller.sh'
+        target: '1.1.1.1'
+        description: forward files.zeller.sh to cloudflare dns
+    - name: Adding files.zeller.sh forwarding to google dns
+      oxlorg.opnsense.unbound_forward:
+        domain: 'files.zeller.sh'
+        target: '1.1.1.1'
+        description: forward files.zeller.sh to google dns
+
