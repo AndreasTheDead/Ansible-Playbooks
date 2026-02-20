@@ -20,7 +20,7 @@ all:
     MS01:
       ansible_port: 22
       ansible_host: ms01.int.zeller.sh
-      tags: [redhat, docker, autoupdate]
+      tags: [ubuntu, docker, autoupdate, new]
     DOH01:
       ansible_port: 22
       ansible_host: DOH01.int.zeller.sh
