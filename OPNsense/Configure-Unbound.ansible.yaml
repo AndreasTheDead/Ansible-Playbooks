@@ -73,6 +73,6 @@
     - name: Adding files.zeller.sh forwarding to google dns
       oxlorg.opnsense.unbound_forward:
         domain: 'files.zeller.sh'
-        target: '1.1.1.1'
+        target: '8.8.8.8'
         description: forward files.zeller.sh to google dns
 
