@@ -30,7 +30,7 @@
         register_ipv6_link_local: true
         register_system_records: true
         txt_records: false
-        flush_dns_cache: false
+        flush_dns_cache: true
         local_zone_type: 'transparent'
         # outgoing_interfaces: ''
         wpad: false
