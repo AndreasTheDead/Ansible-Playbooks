@@ -1,6 +1,6 @@
 - name: Update Apt Packages
   hosts:
-    - apt:&autoupdate:&new
+    - apt:&autoupdate
   ignore_unreachable: true
   become: true
   become_method: ansible.builtin.sudo
