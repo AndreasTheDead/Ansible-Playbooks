@@ -14,3 +14,4 @@ groups:
   docker: "'docker' in tags"
   new: "'new' in tags"
   php: "'php' in tags"
+  proxmox: "'proxmox' in tags"

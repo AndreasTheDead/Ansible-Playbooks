@@ -1,10 +1,6 @@
 ---
 all:
   hosts:
-    RedhatDev:
-      ansible_port: 22
-      ansible_host: RedhatDev.int.zeller.sh
-      tags: [redhat, docker, autoupdate]
     #UbuntuDev:
     #  ansible_port: 22
     #  ansible_host: ubuntudev.int.zeller.sh
@@ -12,11 +8,11 @@ all:
     ReverseProxy:
       ansible_port: 22
       ansible_host: 192.168.5.24
-      tags: [ubuntu, docker, autoupdate, new]
-    GamesZeller:
+      tags: [ubuntu, docker, autoupdate, new, apt]
+    Games:
       ansible_port: 22
       ansible_host: 192.168.5.25
-      tags: [ubuntu, docker, autoupdate, new, php]
+      tags: [ubuntu, docker, autoupdate, new, php, apt]
     Router02:
       ansible_port: 22
       ansible_host: router02.int.zeller.sh
@@ -24,7 +20,7 @@ all:
     MS01:
       ansible_port: 22
       ansible_host: ms01.int.zeller.sh
-      tags: [ubuntu, docker, autoupdate, new]
+      tags: [ubuntu, docker, autoupdate, new, apt]
     DOH01:
       ansible_port: 22
       ansible_host: DOH01.int.zeller.sh
@@ -32,13 +28,19 @@ all:
     Movies:
       tags: [ubuntu, autoupdate, jellyfin]
     VMH01:
-      tags: [ubuntu, autoupdate]
+      tags: [proxmox, autoupdate, apt]
+      ansible_port: 22
+      ansible_host: vmh01.int.zeller.sh
     VMH02:
-      tags: [ubuntu, autoupdate]
+      tags: [proxmox, autoupdate, apt]
+      ansible_port: 22
+      ansible_host: vmh02.int.zeller.sh
+    VMH03:
+      tags: [proxmox, autoupdate, apt]
+      ansible_port: 22
+      ansible_host: vmh03.int.zeller.sh
     WEB:
-      tags: [ubuntu, autoupdate, docker]
-    Games:
-      tags: [ubuntu, autoupdate, docker]
+      tags: [ubuntu, autoupdate, docker, apt]
     STO01:
       tags: [truenas]
     STO02:
