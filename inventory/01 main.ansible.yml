@@ -44,7 +44,7 @@ all:
     WEB:
       ansible_port: 22
       ansible_host: web.zeller.sh
-      tags: [ubuntu, autoupdate, docker, apt]
+      tags: [ubuntu, autoupdate, docker, new, apt]
     STO01:
       tags: [truenas]
     STO02:
