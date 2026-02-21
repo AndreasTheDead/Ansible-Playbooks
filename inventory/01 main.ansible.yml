@@ -13,7 +13,7 @@ all:
       ansible_port: 22
       ansible_host: 192.168.5.24
       tags: [ubuntu, docker, autoupdate, new]
-    Games:
+    GamesZeller:
       ansible_port: 22
       ansible_host: 192.168.5.25
       tags: [ubuntu, docker, autoupdate, new, games]
