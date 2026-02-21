@@ -13,3 +13,4 @@ groups:
   podman: "'podman' in tags"
   docker: "'docker' in tags"
   new: "'new' in tags"
+  games: "'games' in tags"
