@@ -15,3 +15,4 @@ groups:
   new: "'new' in tags"
   php: "'php' in tags"
   proxmox: "'proxmox' in tags"
+  apt: "'apt' in tags"
