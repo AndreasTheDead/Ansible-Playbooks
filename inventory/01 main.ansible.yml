@@ -16,7 +16,7 @@ all:
     GamesZeller:
       ansible_port: 22
       ansible_host: 192.168.5.25
-      tags: [ubuntu, docker, autoupdate, new, games]
+      tags: [ubuntu, docker, autoupdate, new, php]
     Router02:
       ansible_port: 22
       ansible_host: router02.int.zeller.sh
