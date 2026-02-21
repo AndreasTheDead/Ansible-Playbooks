@@ -1,0 +1,37 @@
+- name: Install PHP8.5
+  become: true
+  become_method: ansible.builtin.sudo
+  hosts: ubuntu:&php:&new
+  ignore_unreachable: true
+  gather_facts: true
+  tasks:
+    - name: Install prerequires
+      ansible.builtin.apt:
+        name:
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+        state: present
+    - name: Install Repo
+      ansible.builtin.apt_repository:
+        repo: ppa:ondrej/php
+        state: present
+    - name: APT Update
+      ansible.builtin.apt:
+        update_cache: true
+    - name: Install php packages
+      ansible.builtin.apt:
+        name:
+          - php8.5
+          - php8.5-gd
+          - php8.5-mysql
+          - php8.5-mbstring
+          - php8.5-bcmath
+          - php8.5-xml
+          - php8.5-curl
+          - php8.5-zip
+          - php8.5-intl
+          - php8.5-sqlite3
+          - php8.5-fpm
+        state: present
