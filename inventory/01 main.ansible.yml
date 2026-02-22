@@ -21,14 +21,18 @@ all:
       ansible_port: 22
       ansible_host: ms01.int.zeller.sh
       tags: [ubuntu, docker, autoupdate, new, apt]
+    App01:
+      ansible_port: 22
+      ansible_host: app01.int.zeller.sh
+      tags: [ubuntu, docker, autoupdate, new, apt]
     DOH01:
       ansible_port: 22
       ansible_host: DOH01.int.zeller.sh
       tags: [redhat, docker, autoupdate]
     Movies:
-      nsible_port: 22
+      ansible_port: 22
       ansible_host: movies.int.zeller.sh
-      tags: [ubuntu, autoupdate, jellyfin,apt]
+      tags: [ubuntu, autoupdate, jellyfin, apt]
     VMH01:
       tags: [proxmox, autoupdate, apt]
       ansible_port: 22
