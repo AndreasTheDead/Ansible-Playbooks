@@ -7,7 +7,7 @@ all:
     #  tags: [ubuntu, docker, autoupdate, new]
     ReverseProxy:
       ansible_port: 22
-      ansible_host: 192.168.5.24
+      ansible_host: 159.195.157.59
       tags: [ubuntu, docker, autoupdate, new, apt]
     JumpServer:
       ansible_port: 22
