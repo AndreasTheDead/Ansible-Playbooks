@@ -7,7 +7,7 @@ all:
     #  software: [ubuntu, docker, autoupdate, new]
     DebianTest:
       ansible_port: 22
-      ansible_host: 159.195.157.59
+      ansible_host: 192.168.4.9
       software: [debian, docker, autoupdate, new, apt]
     ReverseProxy:
       ansible_port: 22
