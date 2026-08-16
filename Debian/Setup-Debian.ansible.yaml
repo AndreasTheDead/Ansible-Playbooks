@@ -1,0 +1,50 @@
+- name: Setup Debian Server
+  hosts: debian:&new
+  become: true
+  ignore_unreachable: true
+  tasks:
+    - name: Install Default Packages
+      ansible.builtin.apt:
+        name:
+          - qemu-guest-agent
+          - nano
+          - curl
+          - ca-certificates
+        state: present
+    - name: Add Root CA
+      ansible.builtin.get_url:
+        url: https://files.zeller.sh/LinuxManagment/Zeller-Root.crt
+        dest: /usr/local/share/ca-certificates/Zeller-Root.crt
+        mode: '0777'
+      register: rootca
+    - name: Add Issuing CA
+      ansible.builtin.get_url:
+        url: https://files.zeller.sh/LinuxManagment/Zeller-Issuing.crt
+        dest: /usr/local/share/ca-certificates/Zeller-Issuing.crt
+        mode: '0777'
+      register: issuingca
+    - name: Update Ca Certificates
+      when: issuingca.changed or rootca.changed
+      ansible.builtin.command:
+        cmd: update-ca-certificates
+    - name: Create Default User for AZE
+      ansible.builtin.user:
+        name: 'andreas'
+        create_home: true
+        state: present
+        shell: /bin/bash
+        # groups:
+        #  - wheel
+    - name: Add authorized key for AZE user
+      ansible.posix.authorized_key:
+        user: andreas
+        state: present
+        key: "{{ lookup('url', 'https://files.zeller.sh/LinuxManagment/SSH-Andreas.pub') }}"
+    - name: Allow Sudo without Password for User Andreas
+      community.general.sudoers:
+        name: allow-andreas
+        user: andreas
+        commands: ALL
+        nopassword: true
+        state: present
+        validation: required

@@ -1,0 +1,21 @@
+- name: Harden Debian Server
+  hosts: debian:&new
+  become: true
+  ignore_unreachable: true
+  tasks:
+    - name: Apply SSH Hardening
+      ansible.builtin.include_role:
+        name: devsec.hardening.ssh_hardening
+      vars:
+        ssh_custom_options:
+          - "Include /etc/ssh/ssh_config.d/*"
+        sshd_custom_options:
+          - "AcceptEnv LANG"
+    - name: Apply OS Hardening
+      ansible.builtin.include_role:
+        name: devsec.hardening.os_hardening
+      vars:
+        os_auth_pw_max_age: 99999
+        os_user_pw_ageing: false
+        sysctl_overwrite:
+          net.ipv4.ip_forward: 1
