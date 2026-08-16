@@ -1,0 +1,28 @@
+- name: Install Docker
+  become: true
+  become_method: ansible.builtin.sudo
+  hosts: ubuntu:&docker:&new
+  ignore_unreachable: true
+  gather_facts: true
+  tasks:
+    - name: Install Repo
+      ansible.builtin.deb822_repository:
+        name: docker
+        types: deb
+        uris: https://download.docker.com/linux/debian
+        suites: '{{ ansible_distribution_release }}'
+        components: stable
+        architectures: amd64
+        signed_by: https://download.docker.com/linux/debian/gpg
+        state: present
+    - name: APT Update
+      ansible.builtin.apt:
+        update_cache: true
+    - name: Install Docker
+      ansible.builtin.apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: present
