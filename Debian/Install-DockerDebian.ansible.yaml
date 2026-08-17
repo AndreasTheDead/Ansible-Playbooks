@@ -26,3 +26,23 @@
           - containerd.io
           - docker-compose-plugin
         state: present
+    - name: Create Default Docker user
+      ansible.builtin.user:
+        name: dockerservice
+        create_home: false
+        state: present
+        shell: /bin/bash
+        groups:
+          - docker
+    - name: Add existing user '{{ user }}' to group sudo
+      ansible.builtin.user:
+        name: 'andreas'
+        groups: docker
+        append: true
+    - name: Create Docker Folder
+      ansible.builtin.file:
+        path: /_zeller
+        state: directory
+        mode: "0755"
+        owner: dockerservice
+        group: dockerservice
