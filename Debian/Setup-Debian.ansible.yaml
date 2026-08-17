@@ -10,6 +10,7 @@
           - nano
           - curl
           - ca-certificates
+          - htop
         state: present
     - name: Add Root CA
       ansible.builtin.get_url:
