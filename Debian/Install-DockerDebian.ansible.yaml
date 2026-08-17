@@ -34,7 +34,7 @@
         shell: /bin/bash
         groups:
           - docker
-    - name: Add existing user '{{ user }}' to group sudo
+    - name: Add existing user 'andreas' to group docker
       ansible.builtin.user:
         name: 'andreas'
         groups: docker
