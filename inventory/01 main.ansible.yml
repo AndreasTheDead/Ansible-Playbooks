@@ -5,9 +5,9 @@ all:
     #  ansible_port: 22
     #  ansible_host: ubuntudev.int.zeller.sh
     #  software: [ubuntu, docker, autoupdate, new]
-    DebianTest:
+    MS01-Debian:
       ansible_port: 22
-      ansible_host: 192.168.4.9
+      ansible_host: 192.168.5.50
       software: [debian, docker, autoupdate, new, apt]
     ReverseProxy:
       ansible_port: 22
