@@ -9,6 +9,14 @@ all:
       ansible_port: 22
       ansible_host: 192.168.5.50
       software: [debian, docker, autoupdate, new, apt]
+    App01-Debian:
+      ansible_port: 22
+      ansible_host: 192.168.5.51
+      software: [debian, docker, autoupdate, new, apt]
+    Dev01-Debian:
+      ansible_port: 22
+      ansible_host: 192.168.5.52
+      software: [debian, docker, autoupdate, new, apt]
     ReverseProxy:
       ansible_port: 22
       ansible_host: 159.195.157.59
