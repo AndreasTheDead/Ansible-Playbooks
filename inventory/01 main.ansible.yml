@@ -21,30 +21,14 @@ all:
       ansible_port: 22
       ansible_host: 159.195.157.59
       software: [ubuntu, docker, autoupdate, new, apt]
-    JumpServer:
-      ansible_port: 22
-      ansible_host: 192.168.5.28
-      software: [ubuntu, autoupdate, new, apt]
     Games:
       ansible_port: 22
       ansible_host: 192.168.5.25
       software: [ubuntu, docker, autoupdate, new, php, apt]
-    Kasm:
-      ansible_port: 22
-      ansible_host: 192.168.5.27
-      software: [ubuntu, docker, autoupdate, new, apt]
     Router02:
       ansible_port: 22
       ansible_host: router02.int.zeller.sh
       software: [opnsense]
-    MS01:
-      ansible_port: 22
-      ansible_host: ms01.int.zeller.sh
-      software: [ubuntu, docker, autoupdate, new, apt]
-    App01:
-      ansible_port: 22
-      ansible_host: app01.int.zeller.sh
-      software: [ubuntu, docker, autoupdate, new, apt]
     DOH01:
       ansible_port: 22
       ansible_host: DOH01.int.zeller.sh
