@@ -53,3 +53,19 @@
         regdhcpdomain: 
         regdhcpstatic: false
         dhcpfirst: false
+    - name: Configure IOT Network
+      oxlorg.opnsense.dnsmasq_range:
+        description: IOT Network
+        interface: 'opt3'
+        start_addr: 192.168.6.20
+        end_addr: 192.168.6.250
+        subnet_mask: 255.255.255.0
+        domain: int.zeller.sh
+    - name: Configure Guest Network
+      oxlorg.opnsense.dnsmasq_range:
+        description: Guest Network
+        interface: 'opt2'
+        start_addr: 192.168.7.20
+        end_addr: 192.168.7.250
+        subnet_mask: 255.255.255.0
+        domain: int.zeller.sh
