@@ -1,4 +1,4 @@
-- name: Configure Kea DHCP on OpenSense
+- name: Configure Dnsmasq on OpenSense
   hosts: opnsense
   connection: local
   gather_facts: false
@@ -34,7 +34,7 @@
         domain_needed: true
         resolv_system: false
         forward_private_reverse: true
-        add_mac: false
+        add_mac: ''
         add_subnet: false
         strip_subnet: false
         # DHCP:
