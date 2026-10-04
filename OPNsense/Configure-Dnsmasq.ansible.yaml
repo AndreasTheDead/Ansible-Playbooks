@@ -56,7 +56,7 @@
     - name: Configure 'Any Network domain-name' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
         description: IOT Network domain-name
-        interface: 'any'
+        interface: 'Any'
         type: 'set'
         option: 15
         value: 'int.zeller.sh'
