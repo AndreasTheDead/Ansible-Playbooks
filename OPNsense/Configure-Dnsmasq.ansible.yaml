@@ -22,7 +22,7 @@
         interfaces: ['lan', 'opt2', 'opt3']
         strictbind: false
         # DNS:
-        port: 53
+        port: 0
         dnssec: true
         resolve_etc_hosts: false
         log_queries: false
@@ -54,49 +54,6 @@
         regdhcpdomain: 
         regdhcpstatic: false
         dhcpfirst: false
-    # MARK: DNS Server Settings
-    - name: Configure 'files.zeller.sh to Google' DNS Forwarding
-      oxlorg.opnsense.dnsmasq_domain:
-        description: 'forward files.zeller.sh to Google'
-        domain: 'files.zeller.sh'
-        sequence: 1
-        ip: '8.8.8.8'
-        port: 53
-    - name: Configure 'files.zeller.sh to Cloudflare' DNS Forwarding
-      oxlorg.opnsense.dnsmasq_domain:
-        description: 'forward files.zeller.sh to Cloudflare'
-        domain: 'files.zeller.sh'
-        sequence: 2
-        ip: '1.1.1.1'
-        port: 53
-    - name: Configure 'Zeller.sh to DC01' DNS Forwarding
-      oxlorg.opnsense.dnsmasq_domain:
-        description: 'forward Zeller.sh to DC01'
-        domain: 'zeller.sh'
-        sequence: 3
-        ip: '192.168.5.11'
-        port: 53
-    - name: Configure 'Zeller.sh to DC02' DNS Forwarding
-      oxlorg.opnsense.dnsmasq_domain:
-        description: 'forward Zeller.sh to DC02'
-        domain: 'zeller.sh'
-        sequence: 4
-        ip: '192.168.5.12'
-        port: 53
-    - name: Configure 'NextDNS 1' DNS Forwarding
-      oxlorg.opnsense.dnsmasq_domain:
-        description: 'forward All Requests to NextDNS 1'
-        domain: '*'
-        sequence: 5
-        ip: '45.90.28.230'
-        port: 53
-    - name: Configure 'NextDNS 2' DNS Forwarding
-      oxlorg.opnsense.dnsmasq_domain:
-        description: 'forward All Requests to NextDNS 2'
-        domain: '*'
-        sequence: 6
-        ip: '45.90.30.230'
-        port: 53
     # MARK: DHCP Network Settings
     - name: Configure 'Any Network domain-name' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
