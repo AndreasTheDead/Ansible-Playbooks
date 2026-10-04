@@ -53,6 +53,13 @@
         regdhcpdomain: 
         regdhcpstatic: false
         dhcpfirst: false
+    - name: Configure 'All Network domain-name' DHCP Options
+      oxlorg.opnsense.dnsmasq_option:
+        description: All Network domain-name
+        interface: ['opt3','otp2']
+        type: 'set'
+        option: 15
+        value: 'int.zeller.sh'
     - name: Configure IOT Network
       oxlorg.opnsense.dnsmasq_range:
         description: IOT Network
@@ -61,6 +68,20 @@
         end_addr: 192.168.6.250
         subnet_mask: 255.255.255.0
         domain: int.zeller.sh
+    - name: Configure 'IOT Network Router' DHCP Options
+      oxlorg.opnsense.dnsmasq_option:
+        description: Guest Network Router
+        interface: 'otp3'
+        type: 'set'
+        option: 3
+        value: 192.168.6.1
+    - name: Configure 'IOT Network DNS' DHCP Options
+      oxlorg.opnsense.dnsmasq_option:
+        description: IOT Network DNS
+        interface: 'otp3'
+        type: 'set'
+        option: 6
+        value: 192.168.6.1
     - name: Configure Guest Network
       oxlorg.opnsense.dnsmasq_range:
         description: Guest Network
@@ -69,3 +90,17 @@
         end_addr: 192.168.7.250
         subnet_mask: 255.255.255.0
         domain: int.zeller.sh
+    - name: Configure 'Guest Network Router' DHCP Options
+      oxlorg.opnsense.dnsmasq_option:
+        description: Guest Network Router
+        interface: 'otp2'
+        type: 'set'
+        option: 3
+        value: 192.168.7.1
+    - name: Configure 'Guest Network DNS' DHCP Options
+      oxlorg.opnsense.dnsmasq_option:
+        description: Guest Network DNS
+        interface: 'otp2'
+        type: 'set'
+        option: 6
+        value: 192.168.7.1
