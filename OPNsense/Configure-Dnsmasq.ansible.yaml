@@ -22,22 +22,7 @@
         interfaces: ['lan', 'opt2', 'opt3']
         strictbind: false
         # DNS:
-        port: 0
-        dnssec: true
-        resolve_etc_hosts: false
-        log_queries: false
-        dns_forward_max: 5000
-        cache_size: 10000
-        local_ttl: 1
-        ident: false
-        # DNS Query Forwarding
-        strict_order: false
-        domain_needed: true
-        resolv_system: false
-        forward_private_reverse: true
-        add_mac: ''
-        add_subnet: false
-        strip_subnet: false
+        port: 0 #to disable DNS Server
         # DHCP:
         dhcp_disable_interfaces: ['lan']
         dhcp_fqdn: true
