@@ -22,7 +22,7 @@
         interfaces: ['lan', 'opt2', 'opt3']
         strictbind: false
         # DNS:
-        port: 0
+        port: 53
         dnssec: true
         resolve_etc_hosts: false
         log_queries: false
