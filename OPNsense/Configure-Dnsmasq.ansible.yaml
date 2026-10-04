@@ -56,7 +56,7 @@
     - name: Configure 'All Network domain-name' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
         description: All Network domain-name
-        interface: ['opt3','otp2']
+        interface: ['opt2', 'opt3']
         type: 'set'
         option: 15
         value: 'int.zeller.sh'
@@ -71,14 +71,14 @@
     - name: Configure 'IOT Network Router' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
         description: Guest Network Router
-        interface: 'otp3'
+        interface: 'opt3'
         type: 'set'
         option: 3
         value: 192.168.6.1
     - name: Configure 'IOT Network DNS' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
         description: IOT Network DNS
-        interface: 'otp3'
+        interface: 'opt3'
         type: 'set'
         option: 6
         value: 192.168.6.1
