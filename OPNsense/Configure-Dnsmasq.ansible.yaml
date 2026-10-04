@@ -53,10 +53,10 @@
         regdhcpdomain: 
         regdhcpstatic: false
         dhcpfirst: false
-    - name: Configure 'All Network domain-name' DHCP Options
+    - name: Configure 'Any Network domain-name' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
-        description: All Network domain-name
-        interface: ['opt2', 'opt3']
+        description: IOT Network domain-name
+        interface: 'any'
         type: 'set'
         option: 15
         value: 'int.zeller.sh'
@@ -70,7 +70,7 @@
         domain: int.zeller.sh
     - name: Configure 'IOT Network Router' DHCP Options
       oxlorg.opnsense.dnsmasq_option:
-        description: Guest Network Router
+        description: IOT Network Router
         interface: 'opt3'
         type: 'set'
         option: 3
