@@ -1,0 +1,55 @@
+- name: Configure Kea DHCP on OpenSense
+  hosts: opnsense
+  connection: local
+  gather_facts: false
+  module_defaults:
+    group/oxlorg.opnsense.all:
+      firewall: "{{ ansible_host }}"
+      api_key: "{{ firewallkey }}"
+      api_secret: "{{ firewallsecret }}"
+      ssl_verify: false
+    oxlorg.opnsense.list:
+      target: 'package'
+  tasks:
+    - name: Install required httpx python module local
+      ansible.builtin.pip:
+        name: httpx
+    - name: Set General Settings
+      oxlorg.opnsense.dnsmasq_general:
+        # General
+        enabled: true
+        interfaces: ['lan', 'opt2', 'opt3']
+        strictbind: false
+        # DNS:
+        port: 0
+        dnssec: true
+        resolve_etc_hosts: false
+        log_queries: false
+        dns_forward_max: 5000
+        cache_size: 10000
+        local_ttl: 1
+        ident: false
+        # DNS Query Forwarding
+        strict_order: false
+        domain_needed: true
+        resolv_system: false
+        forward_private_reverse: true
+        add_mac: false
+        add_subnet: false
+        strip_subnet: false
+        # DHCP:
+        dhcp_disable_interfaces: ['lan']
+        dhcp_fqdn: true
+        dhcp_domain: int.zeller.sh
+        dhcp_local: true
+        dhcp_lease_max: 1000
+        dhcp_authoritative: true
+        dhcp_reply_delay: 0
+        dhcp_default_fw_rules: true
+        dhcp_enable_ra: false
+        dhcp_hasync: false
+        # ISC/KEA DHCP (legacy)
+        regdhcp: false
+        regdhcpdomain: 
+        regdhcpstatic: false
+        dhcpfirst: false
