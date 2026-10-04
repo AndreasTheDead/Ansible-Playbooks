@@ -62,7 +62,7 @@
     - name: Configure IOT Network
       oxlorg.opnsense.dnsmasq_range:
         description: IOT Network
-        interface: 'opt3'
+        interface: 'IOTVlan'
         start_addr: 192.168.6.20
         end_addr: 192.168.6.250
         subnet_mask: 255.255.255.0
