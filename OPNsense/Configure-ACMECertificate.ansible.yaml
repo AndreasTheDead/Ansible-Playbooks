@@ -16,7 +16,7 @@
         name: httpx
     - name: Installing HA proxy plugin
       oxlorg.opnsense.package:
-        name: ['os-haproxy', 'os-acme-client']
+        name: ['os-acme-client']
         action: 'install'
     - name: Configure Default Settings for ACME Client
       oxlorg.opnsense.acme_general:
