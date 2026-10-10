@@ -58,6 +58,6 @@
         account: LE opnsense
         validation: DNS CloudFlare
         auto_renewal: true
-        renew_interval: 60
+        renew_interval: 30
         key_length: key_4096
         restart_actions: ['Restart GUI']
