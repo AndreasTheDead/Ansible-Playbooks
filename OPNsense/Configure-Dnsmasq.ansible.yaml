@@ -50,7 +50,7 @@
       oxlorg.opnsense.dnsmasq_range:
         description: IOT Network
         interface: 'IOTVlan'
-        start_addr: 192.168.6.20
+        start_addr: 192.168.6.100
         end_addr: 192.168.6.250
         subnet_mask: 255.255.255.0
         domain: int.zeller.sh
