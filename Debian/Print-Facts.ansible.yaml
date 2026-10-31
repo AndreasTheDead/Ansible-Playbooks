@@ -1,0 +1,9 @@
+- name: Print Facts
+  hosts: debian:&new
+  become: true
+  gather_facts: true
+  ignore_unreachable: true
+  tasks:
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
