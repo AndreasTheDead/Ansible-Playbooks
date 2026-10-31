@@ -5,7 +5,8 @@
   ignore_unreachable: true
   gather_facts: true
   tasks:
-    - name: Install Repo
+    - name: Install Repo x64
+      when: ansible_facts["architecture"] == "x86_64"
       ansible.builtin.deb822_repository:
         name: docker
         types: deb
@@ -13,6 +14,18 @@
         suites: '{{ ansible_facts["distribution_release"] }}'
         components: stable
         architectures: amd64
+        signed_by: https://download.docker.com/linux/debian/gpg
+        state: present
+        install_python_debian: true
+    - name: Install Repo aarch64
+      when: ansible_facts["ansible_architecture"] == "aarch64"
+      ansible.builtin.deb822_repository:
+        name: docker
+        types: deb
+        uris: https://download.docker.com/linux/debian
+        suites: '{{ ansible_facts["distribution_release"] }}'
+        components: stable
+        architectures: arm64
         signed_by: https://download.docker.com/linux/debian/gpg
         state: present
         install_python_debian: true
