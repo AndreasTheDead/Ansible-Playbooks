@@ -18,7 +18,7 @@
         state: present
         install_python_debian: true
     - name: Install Repo aarch64
-      when: ansible_facts["ansible_architecture"] == "aarch64"
+      when: ansible_facts["architecture"] == "aarch64"
       ansible.builtin.deb822_repository:
         name: docker
         types: deb
