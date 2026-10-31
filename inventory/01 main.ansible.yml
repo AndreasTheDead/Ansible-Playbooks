@@ -56,7 +56,7 @@ all:
     WEB:
       ansible_port: 22
       ansible_host: web.zeller.sh
-      software: [ubuntu, autoupdate, docker, new, apt]
+      software: [debian, autoupdate, docker, new, apt]
     VPN:
       ansible_port: 22
       ansible_host: vpn.zeller.sh
