@@ -15,6 +15,7 @@
         architectures: amd64
         signed_by: https://download.docker.com/linux/debian/gpg
         state: present
+        install_python_debian: true
     - name: APT Update
       ansible.builtin.apt:
         update_cache: true
